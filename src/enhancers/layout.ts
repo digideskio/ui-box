@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   boxSizing: PropTypes.string,
@@ -11,7 +12,6 @@ export const propTypes = {
 }
 
 export const propAliases = {}
-
 export const propValidators = {}
 
 const display = {
@@ -48,8 +48,8 @@ const boxSizing = {
 }
 
 export const propEnhancers = {
-  boxSizing: value => getCss(boxSizing, value),
-  clear: value => getCss(clear, value),
+  boxSizing: (value: ValueType) => getCss(boxSizing, value),
+  clear: (value: ValueType) => getCss(clear, value),
   clearfix: () => ({
     className: '📦clearfix',
     styles: `
@@ -59,7 +59,7 @@ export const propEnhancers = {
   content: "";
 }`
   }),
-  display: value => getCss(display, value),
-  float: value => getCss(float, value),
-  zIndex: value => getCss(zIndex, value)
+  display: (value: ValueType) => getCss(display, value),
+  float: (value: ValueType) => getCss(float, value),
+  zIndex: (value: ValueType) => getCss(zIndex, value)
 }

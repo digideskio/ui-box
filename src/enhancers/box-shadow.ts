@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   boxShadow: PropTypes.string
@@ -17,5 +18,5 @@ const boxShadow = {
 }
 
 export const propEnhancers = {
-  boxShadow: value => getCss(boxShadow, value)
+  boxShadow: (value: ValueType) => getCss(boxShadow, value)
 }

@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   background: PropTypes.string,
@@ -68,13 +69,13 @@ const backgroundBlendMode = {
 }
 
 export const propEnhancers = {
-  background: value => getCss(background, value),
-  backgroundBlendMode: value => getCss(backgroundBlendMode, value),
-  backgroundClip: value => getCss(backgroundClip, value),
-  backgroundColor: value => getCss(backgroundColor, value),
-  backgroundImage: value => getCss(backgroundImage, value),
-  backgroundOrigin: value => getCss(backgroundOrigin, value),
-  backgroundPosition: value => getCss(backgroundPosition, value),
-  backgroundRepeat: value => getCss(backgroundRepeat, value),
-  backgroundSize: value => getCss(backgroundSize, value)
+  background: (value: ValueType) => getCss(background, value),
+  backgroundBlendMode: (value: ValueType) => getCss(backgroundBlendMode, value),
+  backgroundClip: (value: ValueType) => getCss(backgroundClip, value),
+  backgroundColor: (value: ValueType) => getCss(backgroundColor, value),
+  backgroundImage: (value: ValueType) => getCss(backgroundImage, value),
+  backgroundOrigin: (value: ValueType) => getCss(backgroundOrigin, value),
+  backgroundPosition: (value: ValueType) => getCss(backgroundPosition, value),
+  backgroundRepeat: (value: ValueType) => getCss(backgroundRepeat, value),
+  backgroundSize: (value: ValueType) => getCss(backgroundSize, value)
 }

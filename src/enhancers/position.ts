@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   bottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -10,7 +11,6 @@ export const propTypes = {
 }
 
 export const propAliases = {}
-
 export const propValidators = {}
 
 const position = {
@@ -42,9 +42,9 @@ const left = {
 }
 
 export const propEnhancers = {
-  bottom: value => getCss(bottom, value),
-  left: value => getCss(left, value),
-  position: value => getCss(position, value),
-  right: value => getCss(right, value),
-  top: value => getCss(top, value)
+  bottom: (value: ValueType) => getCss(bottom, value),
+  left: (value: ValueType) => getCss(left, value),
+  position: (value: ValueType) => getCss(position, value),
+  right: (value: ValueType) => getCss(right, value),
+  top: (value: ValueType) => getCss(top, value)
 }

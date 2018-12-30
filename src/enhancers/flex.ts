@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   alignContent: PropTypes.string,
@@ -22,7 +23,6 @@ export const propTypes = {
 }
 
 export const propAliases = {}
-
 export const propValidators = {}
 
 const flex = {
@@ -134,21 +134,21 @@ const placeSelf = {
 }
 
 export const propEnhancers = {
-  alignContent: value => getCss(alignContent, value),
-  alignItems: value => getCss(alignItems, value),
-  alignSelf: value => getCss(alignSelf, value),
-  flex: value => getCss(flex, value),
-  flexBasis: value => getCss(flexBasis, value),
-  flexDirection: value => getCss(flexDirection, value),
-  flexFlow: value => getCss(flexFlow, value),
-  flexGrow: value => getCss(flexGrow, value),
-  flexShrink: value => getCss(flexShrink, value),
-  flexWrap: value => getCss(flexWrap, value),
-  justifyContent: value => getCss(justifyContent, value),
-  justifyItems: value => getCss(justifyItems, value),
-  justifySelf: value => getCss(justifySelf, value),
-  order: value => getCss(order, value),
-  placeContent: value => getCss(placeContent, value),
-  placeItems: value => getCss(placeItems, value),
-  placeSelf: value => getCss(placeSelf, value)
+  alignContent: (value: ValueType) => getCss(alignContent, value),
+  alignItems: (value: ValueType) => getCss(alignItems, value),
+  alignSelf: (value: ValueType) => getCss(alignSelf, value),
+  flex: (value: ValueType) => getCss(flex, value),
+  flexBasis: (value: ValueType) => getCss(flexBasis, value),
+  flexDirection: (value: ValueType) => getCss(flexDirection, value),
+  flexFlow: (value: ValueType) => getCss(flexFlow, value),
+  flexGrow: (value: ValueType) => getCss(flexGrow, value),
+  flexShrink: (value: ValueType) => getCss(flexShrink, value),
+  flexWrap: (value: ValueType) => getCss(flexWrap, value),
+  justifyContent: (value: ValueType) => getCss(justifyContent, value),
+  justifyItems: (value: ValueType) => getCss(justifyItems, value),
+  justifySelf: (value: ValueType) => getCss(justifySelf, value),
+  order: (value: ValueType) => getCss(order, value),
+  placeContent: (value: ValueType) => getCss(placeContent, value),
+  placeItems: (value: ValueType) => getCss(placeItems, value),
+  placeSelf: (value: ValueType) => getCss(placeSelf, value)
 }

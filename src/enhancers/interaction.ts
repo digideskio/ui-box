@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   cursor: PropTypes.string,
@@ -38,8 +39,8 @@ const pointerEvents = {
 }
 
 export const propEnhancers = {
-  cursor: value => getCss(cursor, value),
-  pointerEvents: value => getCss(pointerEvents, value),
-  userSelect: value => getCss(userSelect, value),
-  visibility: value => getCss(visibility, value)
+  cursor: (value: ValueType) => getCss(cursor, value),
+  pointerEvents: (value: ValueType) => getCss(pointerEvents, value),
+  userSelect: (value: ValueType) => getCss(userSelect, value),
+  visibility: (value: ValueType) => getCss(visibility, value)
 }

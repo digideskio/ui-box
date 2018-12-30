@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
 import {spacesOutsideParentheses} from '../utils/regex'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   border: PropTypes.string,
@@ -47,23 +48,35 @@ export const propAliases = {
   ]
 }
 
-export const propValidators = {}
+interface Validators {
+  borderColor?: (value: string) => string | undefined
+  borderStyle?: (value: string) => string | undefined
+  borderWidth?: (value: string) => string | undefined
+}
+
+export const propValidators: Validators = { }
 
 if (process.env.NODE_ENV !== 'production') {
-  propValidators.borderColor = value => {
+  propValidators.borderColor = (value: string) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderColor”. Use “borderBottomColor”, “borderLeftColor” “borderRightColor” and “borderTopColor” instead.`
     }
+
+    return
   }
-  propValidators.borderStyle = value => {
+  propValidators.borderStyle = (value: string) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderStyle”. Use “borderBottomStyle”, “borderLeftStyle” “borderRightStyle” and “borderTopStyle” instead.`
     }
+
+    return
   }
-  propValidators.borderWidth = value => {
+  propValidators.borderWidth = (value: string) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderWidth”. Use “borderBottomWidth”, “borderLeftWidth” “borderRightWidth” and “borderTopWidth” instead.`
     }
+
+    return
   }
 }
 
@@ -153,20 +166,20 @@ const borderBottomWidth = {
 }
 
 export const propEnhancers = {
-  borderBottom: value => getCss(borderBottom, value),
-  borderBottomColor: value => getCss(borderBottomColor, value),
-  borderBottomStyle: value => getCss(borderBottomStyle, value),
-  borderBottomWidth: value => getCss(borderBottomWidth, value),
-  borderLeft: value => getCss(borderLeft, value),
-  borderLeftColor: value => getCss(borderLeftColor, value),
-  borderLeftStyle: value => getCss(borderLeftStyle, value),
-  borderLeftWidth: value => getCss(borderLeftWidth, value),
-  borderRight: value => getCss(borderRight, value),
-  borderRightColor: value => getCss(borderRightColor, value),
-  borderRightStyle: value => getCss(borderRightStyle, value),
-  borderRightWidth: value => getCss(borderRightWidth, value),
-  borderTop: value => getCss(borderTop, value),
-  borderTopColor: value => getCss(borderTopColor, value),
-  borderTopStyle: value => getCss(borderTopStyle, value),
-  borderTopWidth: value => getCss(borderTopWidth, value)
+  borderBottom: (value: ValueType) => getCss(borderBottom, value),
+  borderBottomColor: (value: ValueType) => getCss(borderBottomColor, value),
+  borderBottomStyle: (value: ValueType) => getCss(borderBottomStyle, value),
+  borderBottomWidth: (value: ValueType) => getCss(borderBottomWidth, value),
+  borderLeft: (value: ValueType) => getCss(borderLeft, value),
+  borderLeftColor: (value: ValueType) => getCss(borderLeftColor, value),
+  borderLeftStyle: (value: ValueType) => getCss(borderLeftStyle, value),
+  borderLeftWidth: (value: ValueType) => getCss(borderLeftWidth, value),
+  borderRight: (value: ValueType) => getCss(borderRight, value),
+  borderRightColor: (value: ValueType) => getCss(borderRightColor, value),
+  borderRightStyle: (value: ValueType) => getCss(borderRightStyle, value),
+  borderRightWidth: (value: ValueType) => getCss(borderRightWidth, value),
+  borderTop: (value: ValueType) => getCss(borderTop, value),
+  borderTopColor: (value: ValueType) => getCss(borderTopColor, value),
+  borderTopStyle: (value: ValueType) => getCss(borderTopStyle, value),
+  borderTopWidth: (value: ValueType) => getCss(borderTopWidth, value)
 }

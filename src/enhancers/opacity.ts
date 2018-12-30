@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   opacity: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
@@ -17,5 +18,5 @@ const opacity = {
 }
 
 export const propEnhancers = {
-  opacity: value => getCss(opacity, value)
+  opacity: (value: ValueType) => getCss(opacity, value)
 }

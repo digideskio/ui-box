@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
 import {spacesOutsideParentheses} from '../utils/regex'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   borderBottomLeftRadius: PropTypes.oneOfType([
@@ -31,13 +32,18 @@ export const propAliases = {
   ]
 }
 
-export const propValidators = {}
+interface Validators {
+  borderRadius?: (value: string) => string | undefined
+}
+export const propValidators: Validators = {}
 
 if (process.env.NODE_ENV !== 'production') {
-  propValidators.borderRadius = value => {
+  propValidators.borderRadius = (value: string) => {
     if (spacesOutsideParentheses.test(value)) {
       return `multiple values (“${value}”) aren՚t supported with “borderRadius”. Use “borderBottomLeftRadius”, “borderBottomRightRadius” “borderTopLeftRadius” and “borderTopRightRadius” instead.`
     }
+
+    return
   }
 }
 
@@ -63,8 +69,8 @@ const borderBottomRightRadius = {
 }
 
 export const propEnhancers = {
-  borderBottomLeftRadius: value => getCss(borderBottomLeftRadius, value),
-  borderBottomRightRadius: value => getCss(borderBottomRightRadius, value),
-  borderTopLeftRadius: value => getCss(borderTopLeftRadius, value),
-  borderTopRightRadius: value => getCss(borderTopRightRadius, value)
+  borderBottomLeftRadius: (value: ValueType) => getCss(borderBottomLeftRadius, value),
+  borderBottomRightRadius: (value: ValueType) => getCss(borderBottomRightRadius, value),
+  borderTopLeftRadius: (value: ValueType) => getCss(borderTopLeftRadius, value),
+  borderTopRightRadius: (value: ValueType) => getCss(borderTopRightRadius, value)
 }

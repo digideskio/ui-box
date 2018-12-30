@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -11,7 +12,6 @@ export const propTypes = {
 }
 
 export const propAliases = {}
-
 export const propValidators = {}
 
 const width = {
@@ -46,10 +46,10 @@ const maxHeight = {
 }
 
 export const propEnhancers = {
-  height: value => getCss(height, value),
-  maxHeight: value => getCss(maxHeight, value),
-  maxWidth: value => getCss(maxWidth, value),
-  minHeight: value => getCss(minHeight, value),
-  minWidth: value => getCss(minWidth, value),
-  width: value => getCss(width, value)
+  height: (value: ValueType) => getCss(height, value),
+  maxHeight: (value: ValueType) => getCss(maxHeight, value),
+  maxWidth: (value: ValueType) => getCss(maxWidth, value),
+  minHeight: (value: ValueType) => getCss(minHeight, value),
+  minWidth: (value: ValueType) => getCss(minWidth, value),
+  width: (value: ValueType) => getCss(width, value)
 }

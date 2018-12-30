@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   overflow: PropTypes.string,
@@ -27,6 +28,6 @@ const overflowX = {
 }
 
 export const propEnhancers = {
-  overflowX: value => getCss(overflowX, value),
-  overflowY: value => getCss(overflowY, value)
+  overflowX: (value: ValueType) => getCss(overflowX, value),
+  overflowY: (value: ValueType) => getCss(overflowY, value)
 }

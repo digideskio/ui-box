@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   columnGap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -152,25 +153,25 @@ const rowGap = {
 }
 
 export const propEnhancers = {
-  columnGap: value => getCss(columnGap, value),
-  gap: value => getCss(gap, value),
-  grid: value => getCss(grid, value),
-  gridArea: value => getCss(gridArea, value),
-  gridAutoColumns: value => getCss(gridAutoColumns, value),
-  gridAutoFlow: value => getCss(gridAutoFlow, value),
-  gridAutoRows: value => getCss(gridAutoRows, value),
-  gridColumn: value => getCss(gridColumn, value),
-  gridColumnEnd: value => getCss(gridColumnEnd, value),
-  gridColumnGap: value => getCss(gridColumnGap, value),
-  gridColumnStart: value => getCss(gridColumnStart, value),
-  gridGap: value => getCss(gridGap, value),
-  gridRow: value => getCss(gridRow, value),
-  gridRowEnd: value => getCss(gridRowEnd, value),
-  gridRowGap: value => getCss(gridRowGap, value),
-  gridRowStart: value => getCss(gridRowStart, value),
-  gridTemplate: value => getCss(gridTemplate, value),
-  gridTemplateAreas: value => getCss(gridTemplateAreas, value),
-  gridTemplateColumns: value => getCss(gridTemplateColumns, value),
-  gridTemplateRows: value => getCss(gridTemplateRows, value),
-  rowGap: value => getCss(rowGap, value)
+  columnGap: (value: ValueType) => getCss(columnGap, value),
+  gap: (value: ValueType) => getCss(gap, value),
+  grid: (value: ValueType) => getCss(grid, value),
+  gridArea: (value: ValueType) => getCss(gridArea, value),
+  gridAutoColumns: (value: ValueType) => getCss(gridAutoColumns, value),
+  gridAutoFlow: (value: ValueType) => getCss(gridAutoFlow, value),
+  gridAutoRows: (value: ValueType) => getCss(gridAutoRows, value),
+  gridColumn: (value: ValueType) => getCss(gridColumn, value),
+  gridColumnEnd: (value: ValueType) => getCss(gridColumnEnd, value),
+  gridColumnGap: (value: ValueType) => getCss(gridColumnGap, value),
+  gridColumnStart: (value: ValueType) => getCss(gridColumnStart, value),
+  gridGap: (value: ValueType) => getCss(gridGap, value),
+  gridRow: (value: ValueType) => getCss(gridRow, value),
+  gridRowEnd: (value: ValueType) => getCss(gridRowEnd, value),
+  gridRowGap: (value: ValueType) => getCss(gridRowGap, value),
+  gridRowStart: (value: ValueType) => getCss(gridRowStart, value),
+  gridTemplate: (value: ValueType) => getCss(gridTemplate, value),
+  gridTemplateAreas: (value: ValueType) => getCss(gridTemplateAreas, value),
+  gridTemplateColumns: (value: ValueType) => getCss(gridTemplateColumns, value),
+  gridTemplateRows: (value: ValueType) => getCss(gridTemplateRows, value),
+  rowGap: (value: ValueType) => getCss(rowGap, value)
 }

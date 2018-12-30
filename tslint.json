@@ -1,6 +1,7 @@
 {
   "extends": "tslint-xo/space",
   "rules": {
-    "semicolon": false
+    "semicolon": false,
+    "prefer-method-signature": false
   }
 }

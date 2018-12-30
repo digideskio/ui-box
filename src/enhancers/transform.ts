@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
+import * as PropTypes from 'prop-types'
 import getCss from '../get-css'
+import {PropEncharValueType as ValueType} from './types'
 
 export const propTypes = {
   transform: PropTypes.string,
@@ -24,6 +25,6 @@ const transformOrigin = {
 }
 
 export const propEnhancers = {
-  transform: value => getCss(transform, value),
-  transformOrigin: value => getCss(transformOrigin, value)
+  transform: (value: ValueType) => getCss(transform, value),
+  transformOrigin: (value: ValueType) => getCss(transformOrigin, value)
 }
