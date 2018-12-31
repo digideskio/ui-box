@@ -3,12 +3,16 @@ import decamelize from './utils/decamelize'
 
 const prefixRegex = /^(Webkit|ms|Moz|O)/
 
+interface Rule {
+  property: string
+  value: string
+}
 /**
  * Adds vendor prefixes to properties and values.
  */
-export default function prefixer(property, value) {
+export default function prefixer(property: string, value: string): Rule[] {
   const rules = prefix({[property]: value})
-  const rulesArray = []
+  const rulesArray: Rule[] = []
   const propertyNames = Object.keys(rules)
 
   // Convert rules object to an array
@@ -19,12 +23,12 @@ export default function prefixer(property, value) {
       ? `-${propertyName}`
       : propertyName
     const prop = decamelize(prefixedProp)
-    const values = rules[propertyName]
+    const values = rules[propertyName] as string | string[]
 
     // Handle prefixed values
     if (Array.isArray(values)) {
-      for (let i = 0; i < values.length; i++) {
-        rulesArray.push({property: prop, value: values[i]})
+      for (let j = 0; j < values.length; j++) {
+        rulesArray.push({property: prop, value: values[j]})
       }
     } else {
       rulesArray.push({property: prop, value: values})
