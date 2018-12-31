@@ -16,6 +16,6 @@
       "check-format",
       "allow-pascal-case"
     ],
-    "prefer-for-of": false,
+    "prefer-for-of": false
   }
 }
