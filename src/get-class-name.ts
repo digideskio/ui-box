@@ -20,8 +20,9 @@ export default function getClassName(propertyInfo: PropertyInfo, value: string) 
   // Shortcut the global keywords
   if (value === 'inherit' || value === 'initial' || value === 'unset') {
     valueKey = value
-    // Always hash values that contain a calc() because the operators get
-    // stripped which can result in class name collisions
+    /* Always hash values that contain a calc() because the operators get
+    stripped which can result in class name collisions
+    */
   } else if (complexValue || value.includes('calc(')) {
     valueKey = hash(value)
   } else if (safeValue) {
