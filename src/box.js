@@ -1,9 +1,8 @@
-import {Component, ReactNode,createElement} from 'react'
+import {Component, createElement} from 'react'
 import * as PropTypes from 'prop-types'
 import {css as gcss} from 'glamor'
-import {propTypes} from './enhancers'
+import {propTypes} from './enhancers/index.ts'
 import enhanceProps from './enhance-props'
-import {Box as BoxType, BoxProps} from './box-types'
 
 let cssWarned = false
 
@@ -26,7 +25,7 @@ export default class Box extends Component {
   }
 
   render() {
-    const { is="div", css, innerRef, children, ...props } = this.props as BoxProps
+    const {is = 'div', css, innerRef, children, ...props} = this.props
     // Convert the CSS props to class names (and inject the styles)
     const [className, parsedProps] = enhanceProps(props)
 
@@ -46,7 +45,7 @@ export default class Box extends Component {
     }
 
     if (innerRef) {
-      parsedProps.ref = (node: ReactNode) => {
+      parsedProps.ref = node => {
         innerRef(node)
       }
     }
@@ -54,4 +53,3 @@ export default class Box extends Component {
     return createElement(is, parsedProps, children)
   }
 }
-
