@@ -2,13 +2,13 @@ import * as hash from 'murmurhash-js'
 import getSafeValue from './get-safe-value'
 
 export interface PropertyInfo {
-  className: string
+  className?: string
   safeValue?: boolean
   complexValue?: boolean
   jsName: string
   cssName: string
   defaultUnit?: string
-  isPrefixed: boolean
+  isPrefixed?: boolean
 }
 /**
  * Generates the class name.

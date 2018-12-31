@@ -1,6 +1,6 @@
-import prefixer, { Rule } from './prefixer'
+import prefixer, {Rule} from './prefixer'
 import valueToString from './value-to-string'
-import getClassName, { PropertyInfo } from './get-class-name'
+import getClassName, {PropertyInfo} from './get-class-name'
 
 /**
  * Generates the class name and styles.
