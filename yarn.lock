@@ -1927,6 +1927,11 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
+"@types/inline-style-prefixer@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/inline-style-prefixer/-/inline-style-prefixer-5.0.0.tgz#8bba0d4735f61bfa2d1a023a23b6a58a63b1166e"
+  integrity sha512-V2YukRG3WNduBSYnY1IY8Gzx25p66guvFqFhTNN2tQ+L3Be1PoV5IcrftMpxj6zSfMXbw0Jgyv6Etomz+OCcRQ==
+
 "@types/murmurhash-js@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@types/murmurhash-js/-/murmurhash-js-1.0.3.tgz#0e8c0a1db692c062ea4f7e1093fc1ba1d1839298"
