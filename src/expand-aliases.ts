@@ -1,4 +1,4 @@
-import {propAliases, propValidators} from './enhancers'
+import {propAliases, propValidators} from './enhancers/index'
 
 /**
  * Expands aliases like `margin` to `marginTop`, `marginBottom`, `marginLeft` and `marginRight`.
@@ -6,7 +6,7 @@ import {propAliases, propValidators} from './enhancers'
  * This prevents edge cases where longhand properties can't override shorthand
  * properties due to the style insertion order.
  */
-export default function expandAliases(props) {
+export default function expandAliases(props: object) {
   const propNames = Object.keys(props)
   // Use a Map because it's faster for setting values and looping over than an Object
   const newProps = new Map()

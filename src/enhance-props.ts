@@ -3,10 +3,20 @@ import expandAliases from './expand-aliases'
 import * as styles from './styles'
 import * as cache from './cache'
 
+
+interface PropsWithClassName {
+  className: string
+  [key: string]: any
+}
+
+interface EnhancedProps {
+  [0]: string
+  [1]: object
+}
 /**
  * Converts the CSS props to class names and inserts the styles.
  */
-export default function enhanceProps(rawProps) {
+export default function enhanceProps(rawProps: PropsWithClassName): EnhancedProps {
   const propsMap = expandAliases(rawProps)
   const enhancedProps = {}
   let className = rawProps.className || ''
