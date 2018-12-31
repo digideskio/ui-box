@@ -3,7 +3,6 @@ import expandAliases from './expand-aliases'
 import * as styles from './styles'
 import * as cache from './cache'
 
-
 interface PropsWithClassName {
   className: string
   [key: string]: any
