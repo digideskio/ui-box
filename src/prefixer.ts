@@ -3,7 +3,7 @@ import decamelize from './utils/decamelize'
 
 const prefixRegex = /^(Webkit|ms|Moz|O)/
 
-interface Rule {
+export interface Rule {
   property: string
   value: string
 }

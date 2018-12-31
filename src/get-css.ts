@@ -1,12 +1,12 @@
-import prefixer from './prefixer'
+import prefixer, { Rule } from './prefixer'
 import valueToString from './value-to-string'
-import getClassName from './get-class-name'
+import getClassName, { PropertyInfo } from './get-class-name'
 
 /**
  * Generates the class name and styles.
  */
-export default function getCss(propertyInfo, value) {
-  let rules
+export default function getCss(propertyInfo: PropertyInfo, value: string | number) {
+  let rules: Rule[]
 
   // Protect against unexpected values
   const valueType = typeof value
@@ -22,7 +22,6 @@ export default function getCss(propertyInfo, value) {
   }
 
   const valueString = valueToString(value, propertyInfo.defaultUnit)
-
   const className = getClassName(propertyInfo, valueString)
 
   // Avoid running the prefixer when possible because it's slow
@@ -32,7 +31,7 @@ export default function getCss(propertyInfo, value) {
     rules = [{property: propertyInfo.cssName, value: valueString}]
   }
 
-  let styles
+  let styles:string
   if (process.env.NODE_ENV === 'production') {
     const rulesString = rules
       .map(rule => `${rule.property}:${rule.value}`)

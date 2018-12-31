@@ -1,10 +1,14 @@
 import * as hash from 'murmurhash-js'
 import getSafeValue from './get-safe-value'
 
-interface PropertyInfo {
+export interface PropertyInfo {
   className: string
   safeValue?: boolean
   complexValue?: boolean
+  jsName: string
+  cssName: string
+  defaultUnit?: string
+  isPrefixed: boolean
 }
 /**
  * Generates the class name.
