@@ -9,7 +9,7 @@
       "es2017",
       "dom"
     ],
-    "allowJs": true,
+    "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDirs": ["src", "tools"],
@@ -21,7 +21,7 @@
     "sourceMap": true
   },
   "files": [
-    "src/index.js",
+    "src/index.tsx",
     "tools/story.tsx"
   ],
   "exclude": [
