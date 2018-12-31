@@ -1,11 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import Box from '../src'
 
 // Built as a regular function instead of a component to reduce impact on the benchmark
-export default function() {
+export default () => {
   return (
     <Box
-      contentEditable // Test prop pass through
+      // Test prop pass through
+      contentEditable
       alignContent="center"
       alignItems="center"
       alignSelf="center"

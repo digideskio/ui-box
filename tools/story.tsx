@@ -1,10 +1,10 @@
 import React from 'react'
-import {storiesOf} from '@storybook/react'
 import Box from '../src'
+import {storiesOf} from '@storybook/react'
 import allPropertiesComponent from './all-properties-component'
 
-const RedBox = props => (
-  <Box background="red" width="100px" height="100px" margin="20px" {...props} />
+const RedBox = redBoxProps => (
+  <Box background="red" width="100px" height="100px" margin="20px" {...redBoxProps} />
 )
 
 const logRef = ref => console.log(ref)

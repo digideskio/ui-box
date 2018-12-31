@@ -1,9 +1,9 @@
 import StyleSheet from './utils/style-sheet'
 
-const styleSheet = new StyleSheet()
+const styleSheet = new StyleSheet({})
 styleSheet.inject()
 
-export function add(styles) {
+export function add(styles: string) {
   styleSheet.insert(styles)
 }
 
@@ -11,7 +11,7 @@ export function getAll() {
   // Convert rules array to a string
   return styleSheet
     .rules()
-    .reduce((combinedRules, rule) => combinedRules + rule.cssText, '')
+    .reduce((combinedRules: string, rule: {cssText: string; }) => combinedRules + rule.cssText, '')
 }
 
 export function clear() {

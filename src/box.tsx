@@ -1,12 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import {Component, ReactNode,createElement} from 'react'
+import * as PropTypes from 'prop-types'
 import {css as gcss} from 'glamor'
 import {propTypes} from './enhancers'
 import enhanceProps from './enhance-props'
+import {Box as BoxType, BoxProps} from './box-types'
 
 let cssWarned = false
 
-export default class Box extends React.Component {
+export default class Box extends Component {
   static displayName = 'Box'
 
   static propTypes = {
@@ -25,21 +26,19 @@ export default class Box extends React.Component {
   }
 
   render() {
-    const {is, css, innerRef, children, ...props} = this.props
+    const { is="div", css, innerRef, children, ...props } = this.props as BoxProps
     // Convert the CSS props to class names (and inject the styles)
     const [className, parsedProps] = enhanceProps(props)
 
     // Add glamor class
     if (css) {
       // Warn that it's deprecated in the development
-      if (process.env.NODE_ENV !== 'production') {
+      if (process.env.NODE_ENV !== 'production' && !cssWarned) {
         // Don't spam the warning
-        if (!cssWarned) {
-          cssWarned = true
-          console.warn(
-            `📦 ui-box deprecation: the “css” prop will be removed in the next major version in favour of importing glamor directly and passing it՚s generated class to the “className” prop.`
-          )
-        }
+        cssWarned = true
+        console.warn(
+          `📦 ui-box deprecation: the “css” prop will be removed in the next major version in favour of importing glamor directly and passing it՚s generated class to the “className” prop.`
+        )
       }
       parsedProps.className = `${className} ${gcss(css).toString()}`
     } else {
@@ -47,11 +46,12 @@ export default class Box extends React.Component {
     }
 
     if (innerRef) {
-      parsedProps.ref = node => {
+      parsedProps.ref = (node: ReactNode) => {
         innerRef(node)
       }
     }
 
-    return React.createElement(is, parsedProps, children)
+    return createElement(is, parsedProps, children)
   }
 }
+

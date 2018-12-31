@@ -1,10 +1,15 @@
 import hash from '@emotion/hash'
 import getSafeValue from './get-safe-value'
 
+interface PropertyInfo {
+  className: string
+  safeValue?: boolean
+  complexValue?: boolean
+}
 /**
  * Generates the class name.
  */
-export default function getClassName(propertyInfo, value) {
+export default function getClassName(propertyInfo: PropertyInfo, value: string) {
   const {
     className,
     safeValue = false, // Value never contains unsafe characters. e.g: 10, hidden, border-box

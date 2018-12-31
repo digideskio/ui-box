@@ -1,9 +1,12 @@
+/* tslint:disable */
+import {PropTypesMapping} from '../enhancers/types'
+
 /**
  * Utility to split props based on an array of keys
  */
-export default function splitProps(props, keys) {
-  const matchedProps = {}
-  const remainingProps = {}
+export default function splitProps(props: PropTypesMapping, keys: any) {
+  const matchedProps: any = {}
+  const remainingProps: any = {}
   const propKeys = Object.keys(props)
 
   for (let i = 0; i < propKeys.length; i++) {
@@ -17,5 +20,5 @@ export default function splitProps(props, keys) {
     }
   }
 
-  return {matchedProps, remainingProps}
+  return { matchedProps, remainingProps }
 }

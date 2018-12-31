@@ -55,6 +55,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.4",
+    "csstype": "^2.6.0",
     "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.2.0",
     "eslint-config-xo-react": "^0.17.0",
@@ -83,7 +84,8 @@
       "browser"
     ],
     "ignores": [
-      "**/*.ts"
+      "**/*.ts",
+      "**/*.tsx"
     ],
     "prettier": true,
     "space": true,
