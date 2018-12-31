@@ -22,7 +22,7 @@
   },
   "files": [
     "src/index.js",
-    "tools/story.js"
+    "tools/story.tsx"
   ],
   "exclude": [
     "node_modules",
