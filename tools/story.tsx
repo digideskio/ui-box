@@ -9,6 +9,16 @@ const RedBox = redBoxProps => (
 
 const logRef = ref => console.log(ref)
 
+interface CustomProps { children: React.ReactNode }
+const CustomComp: React.SFC<CustomProps> = props => {
+  return (
+    <div>
+      <Box is="h1">custom component</Box>
+      {props.children}
+    </div>
+  )
+}
+
 storiesOf('Box', module)
   .add(`is=''`, () => (
     <Box>
@@ -18,6 +28,13 @@ storiesOf('Box', module)
       <Box is="p">p</Box>
       <Box is="strong">strong</Box>
       <Box is="input" />
+    </Box>
+  ))
+  .add(`custom comp`, () => (
+    <Box>
+      <Box is={CustomComp}>
+        <Box>chiiillld</Box>
+      </Box>
     </Box>
   ))
   .add('background', () => (

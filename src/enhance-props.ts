@@ -2,20 +2,16 @@ import {propEnhancers} from './enhancers'
 import expandAliases from './expand-aliases'
 import * as cache from './cache'
 import * as styles from './styles'
+import {BoxProps} from './box-types'
 
-interface PropsWithClassName {
+interface EnhancedPropsResult {
   className: string
-  [key: string]: any
-}
-
-interface EnhancedProps {
-  [0]: string
-  [1]: object
+  enhancedProps: Partial<BoxProps>
 }
 /**
  * Converts the CSS props to class names and inserts the styles.
  */
-export default function enhanceProps(rawProps: PropsWithClassName): EnhancedProps {
+export default function enhanceProps(rawProps: Partial<BoxProps>): EnhancedPropsResult {
   const propsMap = expandAliases(rawProps)
   const enhancedProps = {}
   let className = rawProps.className || ''
@@ -52,5 +48,5 @@ export default function enhanceProps(rawProps: PropsWithClassName): EnhancedProp
 
   className = className.trim()
 
-  return [className, enhancedProps]
+  return {className, enhancedProps}
 }

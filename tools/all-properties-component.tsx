@@ -146,7 +146,7 @@ export default () => {
       width="calc(25% - 10px)"
       wordBreak="normal"
       wordWrap="break-word"
-      zIndex="1"
+      zIndex={1}
     />
   )
 }
