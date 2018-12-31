@@ -1,4 +1,4 @@
-import hash from '@emotion/hash'
+import * as hash from 'murmurhash-js'
 import getSafeValue from './get-safe-value'
 
 interface PropertyInfo {
@@ -15,7 +15,7 @@ export default function getClassName(propertyInfo: PropertyInfo, value: string) 
     safeValue = false, // Value never contains unsafe characters. e.g: 10, hidden, border-box
     complexValue = false // Complex values that are best hashed. e.g: background-image
   } = propertyInfo
-  let valueKey
+  let valueKey: string | number
 
   // Shortcut the global keywords
   if (value === 'inherit' || value === 'initial' || value === 'unset') {
