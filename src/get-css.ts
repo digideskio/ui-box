@@ -31,7 +31,7 @@ export default function getCss(propertyInfo: PropertyInfo, value: string | numbe
     rules = [{property: propertyInfo.cssName, value: valueString}]
   }
 
-  let styles:string
+  let styles: string
   if (process.env.NODE_ENV === 'production') {
     const rulesString = rules
       .map(rule => `${rule.property}:${rule.value}`)
